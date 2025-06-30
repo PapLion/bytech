@@ -1,8 +1,8 @@
 "use client"
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/bytech/components/ui/card"
-import { Badge } from "@/bytech/components/ui/badge"
-import { Button } from "@/bytech/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@//components/ui/card"
+import { Badge } from "@//components/ui/badge"
+import { Button } from "@//components/ui/button"
 import { Users, Star, DollarSign, Eye, Edit, BarChart3 } from "lucide-react"
 import Link from "next/link"
 

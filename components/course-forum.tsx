@@ -3,8 +3,8 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/bytech/components/ui/button"
-import { Textarea } from "@/bytech/components/ui/textarea"
+import { Button } from "@//components/ui/button"
+import { Textarea } from "@//components/ui/textarea"
 import { MessageCircle, Plus, Send, User } from "lucide-react"
 
 interface ForumMessage {

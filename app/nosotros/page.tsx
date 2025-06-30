@@ -1,5 +1,5 @@
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
 import { Terminal, Code, Users, Zap, Heart, Coffee, Rocket } from "lucide-react"
 
 export default function NosotrosPage() {

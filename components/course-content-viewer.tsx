@@ -3,10 +3,10 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Badge } from "@/bytech/components/ui/badge"
-import { Button } from "@/bytech/components/ui/button"
-import { Input } from "@/bytech/components/ui/input"
-import { Textarea } from "@/bytech/components/ui/textarea"
+import { Badge } from "@//components/ui/badge"
+import { Button } from "@//components/ui/button"
+import { Input } from "@//components/ui/input"
+import { Textarea } from "@//components/ui/textarea"
 import {
   Play,
   FileText,

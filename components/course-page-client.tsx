@@ -1,11 +1,11 @@
 "use client"
 
-import { CourseContentViewer } from "@/bytech/components/course-content-viewer"
-import { Button } from "@/bytech/components/ui/button"
-import { Badge } from "@/bytech/components/ui/badge"
+import { CourseContentViewer } from "@//components/course-content-viewer"
+import { Button } from "@//components/ui/button"
+import { Badge } from "@//components/ui/badge"
 import { Terminal, Play, Clock, Users, Star, BookOpen, CheckCircle, Lock, ShoppingCart } from "lucide-react"
 import Link from "next/link"
-import { useAuth } from "@/bytech/lib/auth-context"
+import { useAuth } from "@//lib/auth-context"
 
 interface Course {
   title: string

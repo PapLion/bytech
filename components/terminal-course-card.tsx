@@ -1,4 +1,4 @@
-import { Badge } from "@/bytech/components/ui/badge"
+import { Badge } from "@//components/ui/badge"
 import { Clock, Users, Star, Play, Code } from "lucide-react"
 import Link from "next/link"
 

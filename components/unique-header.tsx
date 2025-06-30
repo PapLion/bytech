@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import { Terminal, User, Menu, X, LogOut, UserIcon, Home, ChevronDown } from "lucide-react"
-import { Button } from "@/bytech/components/ui/button"
-import { Badge } from "@/bytech/components/ui/badge"
+import { Button } from "@//components/ui/button"
+import { Badge } from "@//components/ui/badge"
 import { useState, useRef, useEffect } from "react"
-import { useAuth } from "@/bytech/lib/auth-context"
+import { useAuth } from "@//lib/auth-context"
 import { useRouter } from "next/navigation"
 
 export function UniqueHeader() {

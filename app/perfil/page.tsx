@@ -1,12 +1,12 @@
 "use client"
 
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
-import { Button } from "@/bytech/components/ui/button"
-import { Input } from "@/bytech/components/ui/input"
-import { Badge } from "@/bytech/components/ui/badge"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
+import { Button } from "@//components/ui/button"
+import { Input } from "@//components/ui/input"
+import { Badge } from "@//components/ui/badge"
 import { Terminal, User, Edit, Save, X, Camera, Shield } from "lucide-react"
-import { useAuth } from "@/bytech/lib/auth-context"
+import { useAuth } from "@//lib/auth-context"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 

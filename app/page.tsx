@@ -1,7 +1,7 @@
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { HomeFooter } from "@/bytech/components/home-footer"
-import { TerminalCourseCard } from "@/bytech/components/terminal-course-card"
-import { Button } from "@/bytech/components/ui/button"
+import { UniqueHeader } from "@//components/unique-header"
+import { HomeFooter } from "@//components/home-footer"
+import { TerminalCourseCard } from "@//components/terminal-course-card"
+import { Button } from "@//components/ui/button"
 import { Terminal, Code, Zap } from "lucide-react"
 import Link from "next/link"
 

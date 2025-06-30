@@ -1,8 +1,8 @@
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
-import { Button } from "@/bytech/components/ui/button"
-import { Input } from "@/bytech/components/ui/input"
-import { Textarea } from "@/bytech/components/ui/textarea"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
+import { Button } from "@//components/ui/button"
+import { Input } from "@//components/ui/input"
+import { Textarea } from "@//components/ui/textarea"
 import {
   Terminal,
   Mail,

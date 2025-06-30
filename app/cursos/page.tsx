@@ -1,6 +1,6 @@
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
-import { TerminalCourseCard } from "@/bytech/components/terminal-course-card"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
+import { TerminalCourseCard } from "@//components/terminal-course-card"
 import { Terminal, BookOpen } from "lucide-react"
 
 /* ─────────────────────────────────────────

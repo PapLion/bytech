@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/bytech/components/ui/card"
-import { Badge } from "@/bytech/components/ui/badge"
+import { Card, CardContent } from "@//components/ui/card"
+import { Badge } from "@//components/ui/badge"
 import { Clock, Users, Star } from "lucide-react"
 import Image from "next/image"
 

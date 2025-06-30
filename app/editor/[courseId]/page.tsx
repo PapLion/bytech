@@ -1,10 +1,10 @@
 "use client"
 
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
-import { CourseEditor } from "@/bytech/components/course-editor"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
+import { CourseEditor } from "@//components/course-editor"
 import { Terminal } from "lucide-react"
-import { useAuth } from "@/bytech/lib/auth-context"
+import { useAuth } from "@//lib/auth-context"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 

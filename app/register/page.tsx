@@ -4,10 +4,10 @@ import type React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { UniqueHeader } from "@/bytech/components/unique-header"
-import { UniqueFooter } from "@/bytech/components/unique-footer"
-import { Button } from "@/bytech/components/ui/button"
-import { Input } from "@/bytech/components/ui/input"
+import { UniqueHeader } from "@//components/unique-header"
+import { UniqueFooter } from "@//components/unique-footer"
+import { Button } from "@//components/ui/button"
+import { Input } from "@//components/ui/input"
 import { Terminal, Mail, Lock, Eye, EyeOff, User, UserPlus, Check } from "lucide-react"
 
 export default function RegisterPage() {

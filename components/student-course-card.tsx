@@ -1,9 +1,9 @@
 "use client"
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/bytech/components/ui/card"
-import { Badge } from "@/bytech/components/ui/badge"
-import { Button } from "@/bytech/components/ui/button"
-import { Progress } from "@/bytech/components/ui/progress"
+import { Card, CardContent, CardFooter, CardHeader } from "@//components/ui/card"
+import { Badge } from "@//components/ui/badge"
+import { Button } from "@//components/ui/button"
+import { Progress } from "@//components/ui/progress"
 import { BookOpen, Clock, CheckCircle, Play, Award } from "lucide-react"
 import Link from "next/link"
 
