@@ -6,16 +6,14 @@ export function UniqueFooter() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Brand */}
-          <div className="flex flex-col items-end text-right">
-            <div className="mb-2">
-              <span className="text-xl sm:text-2xl font-bold text-white">
-                byte<span className="text-cyan-400">TECH</span>
-              </span>
-              <div className="text-xs text-slate-500 font-mono">v1.0.0</div>
-            </div>
-            <p className="text-slate-400 font-mono text-xs sm:text-sm leading-relaxed">
+          <div className="flex flex-col items-center text-center">
+            <span className="text-xl sm:text-2xl font-bold text-white">
+              byte<span className="text-cyan-400">TECH</span>
+            </span>
+            <div className="text-xs text-slate-500 font-mono">v1.0.0</div>
+            <p className="text-slate-400 font-mono text-xs sm:text-sm leading-relaxed mt-2">
               // Plataforma de aprendizaje tecnológico
               <br />
               // Construyendo el futuro, una línea de código a la vez
@@ -23,7 +21,7 @@ export function UniqueFooter() {
           </div>
 
           {/* Links */}
-          <div>
+          <div className="flex flex-col items-end text-right">
             <h3 className="text-white font-mono font-semibold mb-4 text-sm sm:text-base">./links</h3>
             <div className="space-y-2 font-mono text-xs sm:text-sm">
               <a href="#" className="block text-slate-400 hover:text-cyan-400 transition-colors py-1">
