@@ -75,12 +75,6 @@ export default function SoportePage() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
                   Encuentra respuestas rápidas a las preguntas más comunes sobre nuestros cursos y plataforma.
                 </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 font-mono bg-transparent"
-                >
-                  Ver FAQ
-                </Button>
               </div>
 
               {/* Documentación */}
@@ -92,12 +86,6 @@ export default function SoportePage() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
                   Guías detalladas, tutoriales y recursos para aprovechar al máximo tu experiencia de aprendizaje.
                 </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 font-mono bg-transparent"
-                >
-                  Ver Docs
-                </Button>
               </div>
 
               {/* Video Tutoriales */}
@@ -109,12 +97,6 @@ export default function SoportePage() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
                   Aprende visualmente con nuestros tutoriales en video sobre cómo usar la plataforma.
                 </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 font-mono bg-transparent"
-                >
-                  Ver Videos
-                </Button>
               </div>
             </div>
 

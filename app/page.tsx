@@ -117,16 +117,20 @@ export default function CoursesPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-cyan-500 hover:bg-cyan-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-black w-full sm:w-auto">
+            <Link href="/cursos">
+              <Button className="bg-cyan-500 hover:bg-cyan-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-black w-full sm:w-auto">
               <Code className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               <span className="text-sm sm:text-base">Empieza a programar</span>
-            </Button>
-            <Button
+              </Button>
+            </Link>
+            <Link href="/soporte">
+              <Button
               variant="outline"
               className="border-slate-700 text-slate-300 font-mono hover:bg-slate-800 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-transparent w-full sm:w-auto"
-            >
-              <span className="text-sm sm:text-base">./explora --help</span>
-            </Button>
+              >
+              <span className="text-sm sm:text-base">./dudas --support</span>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
