@@ -1,6 +1,6 @@
 "use client"
 
-import { Terminal, Github, Twitter, MessageCircle } from "lucide-react"
+import { Github, Twitter, MessageCircle } from "lucide-react"
 
 export function UniqueFooter() {
   return (
@@ -8,17 +8,12 @@ export function UniqueFooter() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand */}
-          <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
-                <Terminal className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <span className="text-xl sm:text-2xl font-bold text-white">
-                  byte<span className="text-cyan-400">TECH</span>
-                </span>
-                <div className="text-xs text-slate-500 font-mono">v1.0.0</div>
-              </div>
+          <div className="flex flex-col items-end text-right">
+            <div className="mb-2">
+              <span className="text-xl sm:text-2xl font-bold text-white">
+                byte<span className="text-cyan-400">TECH</span>
+              </span>
+              <div className="text-xs text-slate-500 font-mono">v1.0.0</div>
             </div>
             <p className="text-slate-400 font-mono text-xs sm:text-sm leading-relaxed">
               // Plataforma de aprendizaje tecnológico
