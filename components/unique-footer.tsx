@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Twitter, MessageCircle } from "lucide-react"
+import { Github, Twitter, MessageCircle, Terminal } from "lucide-react"
 
 export function UniqueFooter() {
   return (
