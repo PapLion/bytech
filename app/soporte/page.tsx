@@ -1,13 +1,12 @@
+"use client"
+
 import { UniqueHeader } from "@//components/unique-header"
 import { UniqueFooter } from "@//components/unique-footer"
-import { Button } from "@//components/ui/button"
-import { Input } from "@//components/ui/input"
-import { Textarea } from "@//components/ui/textarea"
+import { SupportForm } from "@/components/support-form"
 import {
   Terminal,
   Mail,
   MessageCircle,
-  Github,
   HelpCircle,
   Book,
   Video,
@@ -19,6 +18,7 @@ import {
 } from "lucide-react"
 
 export default function SoportePage() {
+
   return (
     <div className="min-h-screen bg-dynamic-gradient">
       <UniqueHeader />
@@ -67,7 +67,7 @@ export default function SoportePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {/* FAQ */}
-              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 hover:border-blue-400/50 transition-all group">
+              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
                   <HelpCircle className="w-6 h-6 text-white" />
                 </div>
@@ -78,7 +78,7 @@ export default function SoportePage() {
               </div>
 
               {/* Documentación */}
-              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 hover:border-green-400/50 transition-all group">
+              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
                   <Book className="w-6 h-6 text-white" />
                 </div>
@@ -89,7 +89,7 @@ export default function SoportePage() {
               </div>
 
               {/* Video Tutoriales */}
-              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 hover:border-purple-400/50 transition-all group">
+              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
                   <Video className="w-6 h-6 text-white" />
                 </div>
@@ -97,42 +97,6 @@ export default function SoportePage() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
                   Aprende visualmente con nuestros tutoriales en video sobre cómo usar la plataforma.
                 </p>
-              </div>
-            </div>
-
-            {/* Estado del Sistema */}
-            <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6 mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-black" />
-                </div>
-                <h3 className="text-xl font-bold text-white font-mono">Estado del Sistema</h3>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 p-4 bg-slate-800/50 rounded-lg">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <div>
-                    <div className="text-white font-mono text-sm">Plataforma</div>
-                    <div className="text-green-400 text-xs font-mono">Operacional</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-4 bg-slate-800/50 rounded-lg">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <div>
-                    <div className="text-white font-mono text-sm">Videos</div>
-                    <div className="text-green-400 text-xs font-mono">Operacional</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-4 bg-slate-800/50 rounded-lg">
-                  <AlertCircle className="w-5 h-5 text-yellow-400" />
-                  <div>
-                    <div className="text-white font-mono text-sm">API</div>
-                    <div className="text-yellow-400 text-xs font-mono">Mantenimiento</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -171,74 +135,9 @@ export default function SoportePage() {
                   </div>
                 </div>
 
-                <form className="p-6 space-y-4">
-                  <div>
-                    <label className="block text-sm font-mono text-slate-300 mb-2">
-                      <span className="text-cyan-400">const</span> nombre =
-                    </label>
-                    <Input
-                      placeholder="Tu nombre completo"
-                      className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 font-mono"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-mono text-slate-300 mb-2">
-                      <span className="text-cyan-400">const</span> email =
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="ejemplo@email.com"
-                      className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 font-mono"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-mono text-slate-300 mb-2">
-                      <span className="text-cyan-400">const</span> categoria =
-                    </label>
-                    <select className="w-full bg-slate-800/50 border border-slate-700 text-white font-mono rounded-md px-3 py-2 text-sm">
-                      <option value="">Selecciona una categoría</option>
-                      <option value="tecnico">Problema Técnico</option>
-                      <option value="curso">Pregunta sobre Curso</option>
-                      <option value="pago">Problema de Pago</option>
-                      <option value="cuenta">Problema de Cuenta</option>
-                      <option value="otro">Otro</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-mono text-slate-300 mb-2">
-                      <span className="text-cyan-400">const</span> prioridad =
-                    </label>
-                    <select className="w-full bg-slate-800/50 border border-slate-700 text-white font-mono rounded-md px-3 py-2 text-sm">
-                      <option value="baja">Baja</option>
-                      <option value="media">Media</option>
-                      <option value="alta">Alta</option>
-                      <option value="urgente">Urgente</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-mono text-slate-300 mb-2">
-                      <span className="text-cyan-400">const</span> descripcion =
-                    </label>
-                    <Textarea
-                      placeholder="Describe tu problema o pregunta en detalle..."
-                      rows={4}
-                      className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 font-mono resize-none"
-                    />
-                  </div>
-
-                  <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded-lg">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Enviar Ticket de Soporte
-                  </Button>
-
-                  <div className="text-xs font-mono text-slate-500 text-center">
-                    // Tiempo de respuesta promedio: 2-4 horas
-                  </div>
-                </form>
+                <div className="p-6">
+                  <SupportForm />
+                </div>
               </div>
 
               {/* Info de contacto y horarios */}
@@ -252,7 +151,7 @@ export default function SoportePage() {
                       </div>
                       <div>
                         <div className="text-white font-mono text-sm">Email</div>
-                        <div className="text-slate-400 text-sm">soporte@bytetech.dev</div>
+                        <div className="text-slate-400 text-sm">soporte@bytetechedu.com</div>
                       </div>
                     </div>
 
@@ -265,8 +164,12 @@ export default function SoportePage() {
                         <div className="text-slate-400 text-sm">@byteTECH_support</div>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-3">
+                    <a 
+                      href="https://discord.gg/DCva2DSauG" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-green-500/10 transition-colors"
+                    >
                       <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
                         <Users className="w-5 h-5 text-green-400" />
                       </div>
@@ -274,16 +177,15 @@ export default function SoportePage() {
                         <div className="text-white font-mono text-sm">Comunidad</div>
                         <div className="text-slate-400 text-sm">Discord byteTECH</div>
                       </div>
-                    </div>
-
+                    </a>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
+                      {/*<div className="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
                         <Github className="w-5 h-5 text-gray-400" />
                       </div>
                       <div>
                         <div className="text-white font-mono text-sm">GitHub Issues</div>
                         <div className="text-slate-400 text-sm">github.com/byteTECH</div>
-                      </div>
+                      </div>*/}
                     </div>
                   </div>
                 </div>
@@ -324,28 +226,6 @@ export default function SoportePage() {
                     <div className="text-xs font-mono text-slate-400">
                       <span className="text-green-400">// Nota:</span> Para problemas urgentes, usa Telegram para
                       respuesta más rápida
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-4 font-mono">Tiempos de Respuesta</h3>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-400 font-mono">Baja prioridad:</span>
-                      <span className="text-white font-mono">24-48h</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-400 font-mono">Media prioridad:</span>
-                      <span className="text-white font-mono">4-8h</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-400 font-mono">Alta prioridad:</span>
-                      <span className="text-cyan-400 font-mono">2-4h</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-400 font-mono">Urgente:</span>
-                      <span className="text-red-400 font-mono">{"<"}1h</span>
                     </div>
                   </div>
                 </div>

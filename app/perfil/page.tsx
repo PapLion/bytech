@@ -2,43 +2,27 @@
 
 import { UniqueHeader } from "@//components/unique-header"
 import { UniqueFooter } from "@//components/unique-footer"
-import { Button } from "@//components/ui/button"
-import { Input } from "@//components/ui/input"
 import { Badge } from "@//components/ui/badge"
-import { Terminal, User, Edit, Save, X, Camera, Shield } from "lucide-react"
+import { Terminal, User, Camera, Shield, BookOpen, Clock, Trophy, TrendingUp } from "lucide-react"
 import { useAuth } from "@//lib/auth-context"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { ProfileForm } from "@/components/profile-form"
+import { PasswordForm } from "@/components/password-form"
+import { useProfile } from "@/hooks/use-profile"
 
 export default function PerfilPage() {
-  const { user, isLoggedIn, getUserStats } = useAuth()
+  const { user, isLoggedIn } = useAuth()
   const router = useRouter()
-  const [isEditing, setIsEditing] = useState(false)
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-  })
-  const [isLoading, setIsLoading] = useState(true)
+  const { profile, stats, isLoading, error } = useProfile()
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-      if (!isLoggedIn) {
-        console.log("❌ Usuario no logueado, redirigiendo al login")
-        router.push("/login")
-        return
-      }
-
-      if (user) {
-        setFormData({
-          name: user.name,
-          email: user.email,
-        })
-      }
-    }, 100)
-
-    return () => clearTimeout(timer)
-  }, [isLoggedIn, router, user])
+    if (!isLoggedIn) {
+      console.log("❌ Usuario no logueado, redirigiendo al login")
+      router.push("/ingresar")
+      return
+    }
+  }, [isLoggedIn, router])
 
   // Show loading while checking auth
   if (isLoading) {
@@ -55,23 +39,6 @@ export default function PerfilPage() {
   // If not logged in after loading, don't render anything
   if (!isLoggedIn || !user) {
     return null
-  }
-
-  const userStats = getUserStats()
-
-  const handleSave = () => {
-    // Here you would typically save to backend
-    console.log("Guardando cambios:", formData)
-    setIsEditing(false)
-    // Show success message
-  }
-
-  const handleCancel = () => {
-    setFormData({
-      name: user.name,
-      email: user.email,
-    })
-    setIsEditing(false)
   }
 
   const getRoleBadge = (role: string) => {
@@ -98,7 +65,6 @@ export default function PerfilPage() {
   return (
     <div className="min-h-screen bg-dynamic-gradient">
       <UniqueHeader />
-
       {/* Hero Section */}
       <section className="bg-slate-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-transparent to-cyan-900/5" />
@@ -109,14 +75,11 @@ export default function PerfilPage() {
                 <Terminal className="w-4 h-4 text-cyan-400" />
                 <span className="text-cyan-400 text-sm font-mono">./user --profile</span>
               </div>
-
               <h1 className="font-mono font-bold leading-tight text-cyan-400 text-2xl sm:text-3xl md:text-4xl mb-4">
                 {">"} PERFIL
               </h1>
-
               <p className="text-slate-400 font-mono text-sm">// Gestiona tu información personal</p>
             </div>
-
             {/* Profile Card */}
             <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
               {/* Profile Picture Section */}
@@ -133,119 +96,57 @@ export default function PerfilPage() {
                       <User className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                     )}
                   </div>
-
                   {/* Camera button for editing */}
                   <button className="absolute -bottom-2 -right-2 w-8 h-8 bg-cyan-500 hover:bg-cyan-600 text-black rounded-full flex items-center justify-center transition-colors">
                     <Camera className="w-4 h-4" />
                   </button>
                 </div>
-
                 {/* Role Badge */}
                 <div className="flex justify-center mb-4">{getRoleBadge(user.role)}</div>
               </div>
-
               {/* Form Section */}
               <div className="p-6 space-y-6">
-                {/* Username Field */}
-                <div>
-                  <label className="block text-cyan-400 font-mono text-sm font-semibold mb-3 uppercase tracking-wide">
-                    USERNAME
-                  </label>
-                  <div className="relative">
-                    <Input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                      disabled={!isEditing}
-                      className={`bg-slate-800/50 border border-slate-700 text-white placeholder:text-slate-500 font-mono rounded-lg px-4 py-3 ${
-                        isEditing ? "focus:border-cyan-400" : "cursor-default"
-                      }`}
-                      placeholder="Tu nombre de usuario"
-                    />
-                  </div>
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label className="block text-cyan-400 font-mono text-sm font-semibold mb-3 uppercase tracking-wide">
-                    EMAIL
-                  </label>
-                  <div className="relative">
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                      disabled={!isEditing}
-                      className={`bg-slate-800/50 border border-slate-700 text-white placeholder:text-slate-500 font-mono rounded-lg px-4 py-3 ${
-                        isEditing ? "focus:border-cyan-400" : "cursor-default"
-                      }`}
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="pt-4">
-                  {isEditing ? (
-                    <div className="flex gap-3">
-                      <Button
-                        onClick={handleSave}
-                        className="flex-1 bg-green-500 hover:bg-green-600 text-black font-mono py-3 rounded-lg"
-                      >
-                        <Save className="w-4 h-4 mr-2" />
-                        GUARDAR
-                      </Button>
-                      <Button
-                        onClick={handleCancel}
-                        variant="outline"
-                        className="flex-1 border border-red-500/50 text-red-400 hover:bg-red-500/10 font-mono py-3 rounded-lg bg-transparent"
-                      >
-                        <X className="w-4 h-4 mr-2" />
-                        CANCELAR
-                      </Button>
+                {/* Profile Form */}
+                <ProfileForm />
+                
+                {/* Password Form */}
+                <PasswordForm />
+              </div>
+              
+              {/* Stats Section */}
+              {stats && (
+                <div className="p-6 border-t border-slate-800">
+                  <h3 className="text-lg font-semibold text-cyan-400 mb-4 font-mono">
+                    📊 ESTADÍSTICAS DEL USUARIO
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                      <BookOpen className="w-8 h-8 text-blue-400 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-white">{stats.total_courses || 0}</div>
+                      <div className="text-sm text-slate-400">Cursos</div>
                     </div>
-                  ) : (
-                    <Button
-                      onClick={() => setIsEditing(true)}
-                      className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-mono py-3 rounded-lg"
-                    >
-                      <Edit className="w-4 h-4 mr-2" />
-                      EDITAR PERFIL
-                    </Button>
-                  )}
+                    <div className="text-center p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                      <Clock className="w-8 h-8 text-green-400 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-white">{stats.total_hours || 0}</div>
+                      <div className="text-sm text-slate-400">Horas</div>
+                    </div>
+                    <div className="text-center p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                      <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-white">{stats.achievements?.length || 0}</div>
+                      <div className="text-sm text-slate-400">Logros</div>
+                    </div>
+                    <div className="text-center p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                      <TrendingUp className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-white">{stats.rank || 'N/A'}</div>
+                      <div className="text-sm text-slate-400">Rango</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
-
-            {/* Stats Card */}
-            {userStats && (
-              <div className="mt-6 bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-cyan-400 font-mono mb-4 text-center">ESTADÍSTICAS</h3>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-400 font-mono">{userStats.totalCourses}</div>
-                    <div className="text-slate-400 text-sm font-mono">Cursos</div>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-400 font-mono">${userStats.totalSpent}</div>
-                    <div className="text-slate-400 text-sm font-mono">Invertido</div>
-                  </div>
-                </div>
-
-                <div className="mt-4 pt-4 border-t border-slate-700 text-center">
-                  <div className="text-slate-400 font-mono text-sm">
-                    Miembro desde:{" "}
-                    <span className="text-white">{new Date(userStats.memberSince).toLocaleDateString("es-ES")}</span>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
-
       <UniqueFooter />
     </div>
   )
